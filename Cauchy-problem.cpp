@@ -5,12 +5,12 @@
 #include <stdio.h>
 
 const
-// границы интервала	
+// РіСЂР°РЅРёС†С‹ РёРЅС‚РµСЂРІР°Р»Р°	
 	double a = 0;
 	double b = 1;
-// начальное условие для ДУ
+// РЅР°С‡Р°Р»СЊРЅРѕРµ СѓСЃР»РѕРІРёРµ РґР»СЏ Р”РЈ
 	double y_nu = 1;
-// начальные условия для системы ДУ
+// РЅР°С‡Р°Р»СЊРЅС‹Рµ СѓСЃР»РѕРІРёСЏ РґР»СЏ СЃРёСЃС‚РµРјС‹ Р”РЈ
 	double ys_nu = 1;
 	double zs_nu = 2;
 
@@ -33,7 +33,6 @@ double g(double x1, double y1, double z1)
 
 int main()
 {
-	setlocale(LC_ALL, "russian");
 	int n;
 	double h;
 	int i;
@@ -41,9 +40,8 @@ int main()
 	double l[4];
 	double ty, tz;
 	
-	printf(" Лабораторная работа №5 \n");
-	printf(" Решение дифференциальных уравнений \n");
-	printf(" Введите количество отрезков n: ");
+	printf(" Solution of differential equations \n");
+	printf(" Enter the number of segments n: ");
 	scanf("%d",&n);
 	h = (b-a)/n;
 	printf(" h = %lf \n",h);
@@ -53,8 +51,8 @@ int main()
 	double x_el, y_el;
 
 
-	printf("\n Уравнение y' = xy^3-y   y(0)=1   [0, 1] \n");
-	printf(" Первый улучшенный метод Эйлера \n\n");
+	printf("\n The equation y' = xy^3-y   y(0)=1   [0, 1] \n");
+	printf(" Euler's first improved method \n\n");
 
 	for(i=0;i<=n;i++)
 	{
@@ -69,18 +67,18 @@ int main()
 		ty = dy(x_el,y_el);
 		y[i] = y[i-1]+h*ty;
 	}
-	printf(" Решение дифференциального уравнения: \n");
+	printf(" Solving a Differential Equation: \n");
 	printf("     x         y    \n");
 	for(i=0;i<=n;i++)
 	{
 		printf(" %-8.4lf  %-8.4lf \n",x[i],y[i]);
 	}
 
-	printf("\n\n Решение системы дифференциальных уравнений \n");
+	printf("\n\n Solving a system of differential equations \n");
 	printf(" y' = (z-y)x   \n");
 	printf(" z' = (z+y)x   \n");
 	printf(" y(0)=0   z(0)=1   [0, 1] \n");
-	printf(" Метод Рунге-Кутты 4-го порядка \n\n");
+	printf(" 4th order Runge-Kutta method \n\n");
 
 	y[0] = ys_nu;
 	z[0] = zs_nu;
@@ -106,7 +104,7 @@ int main()
 	    z[i] = z[i-1] + tz;
 	}
 
-	printf(" Решение системы дифференциальных уравнений: \n");
+	printf(" Solving a system of differential equations: \n");
 	printf("     x         y        z    \n");
 	for(i=0;i<=n;i++)
 	{
